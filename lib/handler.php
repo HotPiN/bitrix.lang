@@ -1,11 +1,11 @@
 <?
-namespace Hotpin\Handler;
+namespace Hotpin\Lang;
 
 use Bitrix\Main\Localization\Loc;
 
 IncludeModuleLangFile(__FILE__);
 
-class Lang
+class Handler
 {
 	function addPanelButton()
 	{

@@ -32,7 +32,7 @@ Class hotpin_lang extends CModule
 	function InstallDB($arParams = array())
 	{
 
-		RegisterModuleDependences('main', 'OnPanelCreate', self::MODULE_ID, '\Hotpin\Handler\Lang', 'addPanelButton');
+		RegisterModuleDependences('main', 'OnPanelCreate', self::MODULE_ID, '\Hotpin\Lang\Handler', 'addPanelButton');
 
 		return true;
 	}
@@ -40,7 +40,7 @@ Class hotpin_lang extends CModule
 	function UnInstallDB($arParams = array())
 	{
 
-		UnRegisterModuleDependences('main', 'OnPanelCreate', self::MODULE_ID, '\Hotpin\Handler\Lang', 'addPanelButton');
+		UnRegisterModuleDependences('main', 'OnPanelCreate', self::MODULE_ID, '\Hotpin\Lang\Handler', 'addPanelButton');
 
 		return true;
 	}
