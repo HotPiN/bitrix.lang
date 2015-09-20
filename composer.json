@@ -1,0 +1,26 @@
+{
+  "name": "hotpin/bitrix.lang",
+  "version": "1.0.1",
+  "description": "Модуль для работы с языковыми файлами",
+  "keywords": [
+    "bitrix",
+    "lang",
+    "messages"
+  ],
+  "type": "bitrix-module",
+  "license": "BSD",
+  "support": {
+    "issues": "https://github.com/HotPiN/bitrix.lang/issues",
+    "source": "https://github.com/HotPiN/bitrix.lang.git"
+  },
+  "authors": [
+    {
+      "name": "HotPiN",
+      "email": "hootpin2@gmail.com"
+    }
+  ],
+  "require": {
+    "php": ">=5.3.0",
+    "composer/installers": "*"
+  }
+}
