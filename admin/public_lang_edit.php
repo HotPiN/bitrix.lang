@@ -23,10 +23,9 @@ $form = new \Hotpin\Lang\Form();
 $arLangsFiles = $form->getRequestLangFiles();
 $arIncLang = $form->getIncMessages();
 
-$arRequestLang = $_REQUEST["arLang"];
+$arRequestLang = $form->getRequestLang();
 if (is_array($arRequestLang) && !empty($arRequestLang))
 {
-	$form->setRequestLang($arRequestLang);
 	$form->prepareRequestLang();
 	$arError = $form->getError();
 
@@ -82,5 +81,6 @@ else
 	$obJSPopup->ShowValidationError(GetMessage("H_LANG_ERROR_EMPTY"));
 }
 $obJSPopup->ShowStandardButtons();
+
 
 require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/modules/main/include/epilog_admin_js.php");

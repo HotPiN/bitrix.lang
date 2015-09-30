@@ -27,6 +27,7 @@ class Form
 			}
 			if (count($this->arLangsFiles))
 			{
+				$strPage = $this->getStrPage();
 				foreach ($this->arLangsFiles as $key => $fileLang)
 				{
 					$MESS = array();
@@ -38,7 +39,6 @@ class Form
 
 						$arDirs = explode("/lang/" . LANGUAGE_ID, $fileLang);
 						$textFile = file_get_contents($arDirs[0] . $arDirs[1]);
-
 						$arr = array();
 						preg_match_all('/GetMessage\((.+?)\)/', $textFile, $arr);
 						if (is_array($arr[1]) && count($arr[1]) > 0)
@@ -54,8 +54,16 @@ class Form
 									$this->arIncLang[$fileLang][$langKey] = $MESS[$langKey];
 								}
 							}
-
 						}
+
+						foreach ($MESS as $langKey => $message)
+						{
+							if (strpos($strPage, $message))
+							{
+								$this->arIncLang[$fileLang][$langKey] = $message;
+							}
+						}
+
 					}
 				}
 			}
@@ -64,10 +72,30 @@ class Form
 		return $this->arIncLang;
 	}
 
+	function getStrPage()
+	{
+
+		$str = "";
+		$page = htmlspecialchars($_POST["page"]);
+		if (strlen($page))
+		{
+			$url = $_SERVER["HTTP_ORIGIN"] . $page;
+			$str = file_get_contents($url);
+		}
+
+		return $str;
+	}
+
 	function setRequestLang($arRequestLang)
 	{
 
 		$this->arRequestLang = $arRequestLang;
+	}
+
+	function getRequestLang()
+	{
+
+		return $this->arRequestLang;
 	}
 
 	function getError()

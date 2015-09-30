@@ -25,7 +25,8 @@ class Handler
 						array(
 							"URL"    => "/bitrix/admin/public_lang_edit.php?lang=",
 							"POST"   => array(
-								"arLangFiles" => $arLangsFiles
+								"arLangFiles" => $arLangsFiles,
+								"page"        => $APPLICATION->GetCurPage(true),
 							),
 							"PARAMS" => array(
 								"width"       => 770,
